@@ -2,7 +2,61 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@if (User?.Identity?.IsAuthenticated?? false)
+{
+    <div class="card-body table-responsive card-body bg-secondary bg-opacity-25 rounded-circle box-shadow shadow-lg">
+        <div class="text-center bg-info bg-opacity-25 rounded-circle w-100">
+            <h1 class="display-4 bg-secondary rounded-circle" style="color:lightseagreen;">Welc💫me to <strong> 🐂 & 🐄</strong></h1>
+            <p>Learn about the game ➲ <a href="https://en.wikipedia.org/wiki/Bulls_and_Cows" target="_blank">Wikipedia rules</a>.</p>
+        </div>
+    </div>
+    <hr>
+    <div class="container text-center box-shadow">
+        <p>
+            <a class="btn btn-secondary btn-outline-warning w-25" data-bs-toggle="collapse" href="#collapseID" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Author's game rules ⟱
+            </a>
+        </p>
+        <div class="container collapse collapsing" id="collapseID">
+            <div class="card card-body bg-warning bg-opacity-10 rounded-circle">
+                <h3><strong>Main rules:</strong></h3>
+                <h5>
+                    ⥽ A random number is generated each time you start a New game.
+                </h5>
+                <h5>
+                    Then you have the opportunity to choose position row and a number.
+                </h5>               
+               <h5>
+                    If the number is present somewhere, the Cow will appear. 
+               </h5>
+                <h5>
+                    If the number is missing - Bomb will explode.
+               </h5>
+                <h5>
+                    If the number is correctly guessed - the Bull will come out and a number will be revealed below.                    
+               </h5>
+                <h5>
+                        Collect all 7 numbers and submit to get your Score points.
+                </h5>
+                <h5>
+                        Be faster and you will earn even more points, slow timings will reduce points earned.
+                </h5>
+                <h5>
+                    Bombs occurances will lead to further overall points decrease. ⥼
+                </h5>
+
+            </div>
+        </div>
+   </div>
+
+    
+}
+else
+{
+    <div class="card-body table-responsive card-body bg-secondary bg-opacity-25 rounded-circle box-shadow shadow-lg">
+        <div class="text-center bg-info bg-opacity-25 rounded-circle w-100">
+            <h1 class="display-4 bg-secondary rounded-circle" style="color:lightseagreen;">Welc💫me to <strong> 🐂 & 🐄</strong></h1>
+            <p>Learn about <a href="https://en.wikipedia.org/wiki/Bulls_and_Cows" target="_blank">Wikipedia rules</a>.</p>
+        </div>
+    </div>
+}
