@@ -34,8 +34,7 @@ namespace SecretNumberGame.Services
             else if (int.Parse(nums.Split(" ").ToArray()[col - 1]) != num && nums.Contains(num.ToString()) == false)
             {
                 modelNumber.Num = $"{num}";
-                modelNumber.NumFigure = "💥";
-                modelNumber.IsNotAvailable = true;
+                modelNumber.NumFigure = "💥";                
             }
             else if (int.Parse(nums.Split(" ").ToArray()[col - 1]) == num)
             {
