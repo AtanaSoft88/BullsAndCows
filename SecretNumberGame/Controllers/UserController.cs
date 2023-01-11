@@ -7,9 +7,8 @@ using SecretNumberGame.Data.DataModels;
 using SecretNumberGame.Services.Models;
 
 namespace SecretNumberGame.Controllers
-{
-    [Authorize]
-    public class UserController : Controller
+{    
+    public class UserController : BaseController
     {
         private readonly UserManager<AppUser> userManager;
         private readonly SignInManager<AppUser> signInManager;
@@ -115,7 +114,7 @@ namespace SecretNumberGame.Controllers
             return this.View(model);
 
         }
-
+        [AllowAnonymous]
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();

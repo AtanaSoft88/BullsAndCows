@@ -4,6 +4,7 @@ namespace SecretNumberGame.Services.Contracts
 {
     public interface IScoreBoardService
     {
-        Task<IEnumerable<ScoreViewModel>> GetScores();
+        Task<IEnumerable<ScoreViewModel>> GetScore();
+        Task ClearScore();
     }
 }

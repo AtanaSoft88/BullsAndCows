@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SecretNumberGame.Data;
 using SecretNumberGame.Services.Contracts;
 using SecretNumberGame.Services.Models;
@@ -14,13 +15,23 @@ namespace SecretNumberGame.Controllers
         {            
             service = _service;
         }
-
+        
         [HttpGet]
-        public async Task<IActionResult> GeAllScoresAsync()
+        [AllowAnonymous]
+        public async Task<IActionResult> GetAllUsersScore()
         {
-            var modelNumber = await service.GetScores();
+            var modelNumber = await service.GetScore();
 
             return View(modelNumber);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> ResetScoreBoard()
+        {
+            await service.ClearScore();
+
+            return RedirectToAction(nameof(GetAllUsersScore));
         }
     }
 }

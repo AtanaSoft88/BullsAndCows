@@ -8,10 +8,13 @@ namespace SecretNumberGame.Services.Models
 {
     public class ScoreViewModel
     {
-        public int UserTotalScore { get; set; }
+        public string UserNames { get; set; }
+        public int TotalGold { get; set; }
         public int UserTotalGames { get; set; }
-        public int AveragePointsPerGame { get; set; }
-        public int MaxGamePoints { get; set; }
+        public double AverageGoldEarned { get; set; }
+        public string BestDuration { get; set; }
         public bool HasBestTotalScore { get; set; }
+        public bool HasBestTime { get; set; }       
+        public List<int?> GoldAllGames { get; set; } 
     }
 }

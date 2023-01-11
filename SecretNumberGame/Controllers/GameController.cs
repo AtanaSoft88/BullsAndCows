@@ -7,7 +7,7 @@ using System.Security.Claims;
 
 namespace SecretNumberGame.Controllers
 {
-    public class GameController : Controller
+    public class GameController : BaseController
     {
         private readonly ISecretNumberService service;
         private readonly ISaveResultService saveResultService;

@@ -1,0 +1,111 @@
+﻿@model IEnumerable<ScoreViewModel>
+@{
+    ViewBag.Title = "Scoreboard";
+    var maxGold = -1;
+}
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr class="container w-25 align-content-center"/>
+<hr class="container w-50 align-content-center"/>
+<hr class="container w-75 align-content-center"/>
+<div class="container card-body bg-info bg-opacity-25 rounded-pill shadow-lg w-100 align-content-center">
+    <table class="table-bordered table table-hover table-responsive border-secondary box-shadow shadow-lg container w-75">
+
+        <thead class="bg-info">
+            <tr class="align-content-center">
+                <th style="width:15%">
+                    <h6>❍ Names 🕴️❍</h6>
+                </th>
+                <th style="width:11%">
+                    <h6>❍ Games ❍</h6>
+                </th>
+                <th style="width:22%">
+                    <h6>❍ Gold Earned 🏅❍</h6>
+                </th>
+                <th style="width:22%">
+                    <h6>❍ Average Gold/Game ❍</h6>
+                </th>
+                <th style="width:18%">
+                    <h6>❍ Best Time ⏱❍</h6>
+                </th>
+                <th style="width:16%">
+                    <h6>❍ Winner ❍</h6>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr class="bg-danger bg-opacity-10">
+                    <td>
+                        <h6>@user.UserNames</h6>
+                    </td>
+                    <td>
+                        <h6>@user.UserTotalGames</h6>
+                    </td>
+                    <td>
+                        <div class="container list-group list-group-horizontal">
+                            <h6 class="m-3">@user.TotalGold 💰</h6>
+                            <select class="form-control-sm dropdown-divider" style="background-color:lightgreen;touch-action:cross-slide-x;font-weight:400">
+                                <option>All </option>
+                                @for (int i = 0; i < user.GoldAllGames.Count; i++)
+                                {
+                                    <option style="font-weight:400">
+
+                                        @($"{user.GoldAllGames[i].Value} gold")
+
+                                    </option>
+
+                                }
+
+                            </select>
+                        </div>
+                    </td>
+                    
+                    <td>
+                        <h6>@(user.AverageGoldEarned.ToString("f2")) gold / game</h6>
+                    </td>
+                    <td>
+                        @if (double.Parse(user.BestDuration) < 60)
+                        {
+                            <h6>0 min @user.BestDuration sec</h6>
+                        }
+                        else
+                        {
+                            if ((double.Parse(user.BestDuration) - 60) < 60)                                 
+                            {
+                                <h6> 1 min @((double.Parse(user.BestDuration) - 60).ToString("f2")) sec</h6>
+                            }
+                            else
+                            {
+                                <h6> @(Math.Floor(double.Parse(user.BestDuration) / 60)) min @(((double.Parse(user.BestDuration) / 60 - (Math.Floor(double.Parse(user.BestDuration) / 60))) * 60).ToString("f2")) sec</h6>
+                            }
+                            
+                        }
+                       
+                    </td>
+                    <td>
+                        @if (user.HasBestTime && user.HasBestTotalScore)
+                        {
+                            <h6>🏆</h6>
+                        }
+                        else
+                        {
+                            <h6>㋛</h6>
+                        }
+                        
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>   
+</div>
+<hr class="container w-75 align-content-center" />
+<hr class="container w-50 align-content-center" />
+<hr class="container w-25 align-content-center" />
+<form method="post">
+    <div class="text-center m-3">
+        <input type="submit" asp-action="ResetScoreBoard" asp-controller="ScoreBoard" value="Reset Score" class="btn btn-warning btn-outline-danger align-content-center w-auto rounded-pill box-shadow shadow-lg" />
+    </div>
+</form>
+

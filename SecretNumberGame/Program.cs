@@ -18,7 +18,7 @@ builder.Services.AddDefaultIdentity<AppUser>(options =>
     options.SignIn.RequireConfirmedAccount = false;
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequiredLength = 5;
-    //options.User.RequireUniqueEmail = true;
+    
 })
     .AddEntityFrameworkStores<SecretDbContext>();
 builder.Services.AddControllersWithViews();
