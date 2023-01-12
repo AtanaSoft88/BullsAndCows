@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SecretNumberGame.Data;
 using SecretNumberGame.Services.Contracts;
 using SecretNumberGame.Services.Models;
+using System.Security.Claims;
 
 namespace SecretNumberGame.Controllers
 {
@@ -32,6 +33,18 @@ namespace SecretNumberGame.Controllers
             await service.ClearScore();
 
             return RedirectToAction(nameof(GetAllUsersScore));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> MyScore() 
+        {
+            var userId = User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
+            if (userId != null)
+            {
+               var myScore = await service.GetMyScore(userId);
+                return View(myScore);
+            }
+            return RedirectToAction("Index","Home");
         }
     }
 }

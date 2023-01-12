@@ -103,9 +103,12 @@
 <hr class="container w-75 align-content-center" />
 <hr class="container w-50 align-content-center" />
 <hr class="container w-25 align-content-center" />
-<form method="post">
+@if (User?.Identity?.IsAuthenticated??false)
+{
+    <form method="post">
     <div class="text-center m-3">
         <input type="submit" asp-action="ResetScoreBoard" asp-controller="ScoreBoard" value="Reset Score" class="btn btn-warning btn-outline-danger align-content-center w-auto rounded-pill box-shadow shadow-lg" />
     </div>
 </form>
+}
 

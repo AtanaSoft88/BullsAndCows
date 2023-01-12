@@ -4,3 +4,5 @@ Simple ASP .NET Core MVC Application where main idea represents guessing numbers
 # Gallery 
 ![title](Images/index.png)
 ![title](Images/bulls-cows.png)
+![title](Images/scoreboard.png)
+![title](Images/personal.png)

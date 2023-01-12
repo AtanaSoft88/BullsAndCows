@@ -8,7 +8,7 @@ namespace SecretNumberGame.Services.Models
 {
     public class ScoreViewModel
     {
-        public string UserNames { get; set; }
+        public string UserNames { get; set; }        
         public int TotalGold { get; set; }
         public int UserTotalGames { get; set; }
         public double AverageGoldEarned { get; set; }
