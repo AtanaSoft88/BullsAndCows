@@ -26,11 +26,7 @@ namespace SecretNumberGame.Controllers
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Register()
-        {
-            if (User?.Identity?.IsAuthenticated??false)
-            {
-                return RedirectToAction("All", "Books");
-            }
+        {            
             var model = new RegisterViewModel();
             return this.View(model);
 
@@ -39,7 +35,7 @@ namespace SecretNumberGame.Controllers
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Register(RegisterViewModel model)
-        {          
+        {         
 
             if (!ModelState.IsValid)
             {
@@ -67,9 +63,7 @@ namespace SecretNumberGame.Controllers
                 await signInManager.SignInAsync(user, isPersistent: false);
                 return RedirectToAction("Login", "User");
                 
-            }
-
-            
+            }            
             foreach (var err in result.Errors)
             {
                 ModelState.AddModelError("", err.Description);
