@@ -21,10 +21,7 @@
                     <ul class="navbar-nav flex-grow-1 rounded-pill" style="background-color:greenyellow">
                         <li class="nav-item btn-group btn-outline-success rounded-pill">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item btn-group btn-outline-success rounded-pill">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                        </li>                        
                         @if (User?.Identity?.IsAuthenticated?? false)
                         {
                             <li class="nav-item btn-group btn-outline-success rounded-pill">
@@ -49,9 +46,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted bg-primary bg-opacity-25">
         <div class="container">
-            &copy; 2023 - SecretNumberGame - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - Bulls & Cows 
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
