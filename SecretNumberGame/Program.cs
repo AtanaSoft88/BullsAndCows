@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SecretNumberGame.Data;
+using SecretNumberGame.Data.Constants;
 using SecretNumberGame.Data.DataModels;
 using SecretNumberGame.Services;
 using SecretNumberGame.Services.Contracts;
@@ -19,13 +20,21 @@ builder.Services.AddDefaultIdentity<AppUser>(options =>
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequiredLength = 5;
     
-})
-    .AddEntityFrameworkStores<SecretDbContext>();
+}).AddRoles<IdentityRole<Guid>>()
+  .AddEntityFrameworkStores<SecretDbContext>();
 builder.Services.AddControllersWithViews();
 
 builder.Services.ConfigureApplicationCookie(option =>
 {
     option.LoginPath = "/User/Login";    
+});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy(GlobalConstants.MY_POLICY, policy =>
+    policy.RequireAssertion(context =>
+                            context.User.IsInRole(GlobalConstants.ADMIN) &&
+                            context.User.IsInRole(GlobalConstants.PLAYER)));
 });
 
 builder.Services.AddScoped<ISecretNumberService, SecretNumberService>();

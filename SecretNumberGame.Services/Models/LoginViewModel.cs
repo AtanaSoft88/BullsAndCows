@@ -12,9 +12,7 @@ namespace SecretNumberGame.Services.Models
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; } = null!;
-
-        //Must be hidden
-        // Into View.cshtml --->  <input type="hidden" asp-for="ReturnUrl"/>
+        
         public string? ReturnUrl { get; set; }
 
     }

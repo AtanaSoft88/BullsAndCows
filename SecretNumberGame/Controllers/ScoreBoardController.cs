@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SecretNumberGame.Data;
+using SecretNumberGame.Data.Constants;
 using SecretNumberGame.Services.Contracts;
 using SecretNumberGame.Services.Models;
 using System.Security.Claims;
@@ -27,7 +28,7 @@ namespace SecretNumberGame.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize(Policy = GlobalConstants.MY_POLICY)]
         public async Task<IActionResult> ResetScoreBoard()
         {
             await service.ClearScore();

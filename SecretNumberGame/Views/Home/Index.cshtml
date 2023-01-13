@@ -2,32 +2,18 @@
     ViewData["Title"] = "Home Page";
 }
 
-@if (User?.Identity?.IsAuthenticated?? false)
-{
-    <div class="card-body table-responsive card-body bg-secondary bg-opacity-25 rounded-circle box-shadow shadow-lg">
-        <div class="text-center bg-info bg-opacity-25 rounded-circle w-100">
-            <h1 class="display-4 bg-secondary rounded-circle" style="color:lightseagreen;">Welc💫me to <strong> 🐂 & 🐄</strong></h1>
-            <p>Learn about the game ➲ <a href="https://en.wikipedia.org/wiki/Bulls_and_Cows" target="_blank">Wikipedia rules</a>.</p>
-        </div>
+<div class="card-body table-responsive card-body bg-secondary bg-opacity-25 rounded-circle box-shadow shadow-lg">
+    <div class="text-center bg-info bg-opacity-25 rounded-circle w-100">
+        <h1 class="display-4 bg-secondary rounded-circle" style="color:lightseagreen;">Welc💫me to <strong> 🐂 & 🐄</strong></h1>
+        <p>Learn about the game ➲ <a href="https://en.wikipedia.org/wiki/Bulls_and_Cows" target="_blank">Wikipedia rules</a>.</p>
     </div>
-    <hr>
-    <div class="container text-center box-shadow">
-        <p>
-            <a class="btn btn-secondary btn-outline-warning w-25" data-bs-toggle="collapse" href="#collapseID" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Author's game rules ⟱
-            </a>
-        </p>
-        <partial name="_gameIntro" />
-   </div>
-
-    
-}
-else
-{
-    <div class="card-body table-responsive card-body bg-secondary bg-opacity-25 rounded-circle box-shadow shadow-lg">
-        <div class="text-center bg-info bg-opacity-25 rounded-circle w-100">
-            <h1 class="display-4 bg-secondary rounded-circle" style="color:lightseagreen;">Welc💫me to <strong> 🐂 & 🐄</strong></h1>
-            <p>Learn about <a href="https://en.wikipedia.org/wiki/Bulls_and_Cows" target="_blank">Wikipedia rules</a>.</p>
-        </div>
-    </div>
-}
+</div>
+<hr>
+<div class="container text-center box-shadow">
+    <p>
+        <a class="btn btn-secondary btn-outline-warning w-25" data-bs-toggle="collapse" href="#collapseID" role="button" aria-expanded="false" aria-controls="collapseExample">
+            Author's game rules ⟱
+        </a>
+    </p>
+    <partial name="_gameIntro" />
+</div>

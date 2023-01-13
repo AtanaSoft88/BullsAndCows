@@ -1,35 +1,41 @@
 ﻿@model LoginViewModel
 @{
-    ViewData["Title"] = "Log in";
+	ViewData["Title"] = "Log in";
 }
 
 
 <h1 class="text-center">@ViewData["Title"]</h1>
-<div class="row">
-    <div class="col-md-4">
-        <form id="loginForm" method="post">
-            <h4>Please enter Email and Password</h4>
-            <hr />
-            <input type="hidden" asp-for="ReturnUrl" />
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="text-center rounded-circle bg-dark bg-opacity-50 w-100">
+	<div class="row rounded-pill bg-info bg-opacity-25 ">
+		<div class="container col-md-5 rounded-pill bg-dark bg-opacity-50 text-warning text-center">
+			<form id="loginForm" method="post">
+				<h4>Please enter Email and Password</h4>
+				<hr />
+				<input type="hidden" asp-for="ReturnUrl" />
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <div class="form-floating">
-                <input asp-for="Email" class="form-control" autocomplete="username" aria-required="true" />
-                <label asp-for="Email"></label>
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
+				<label asp-for="Email"></label><br />
+				<span asp-validation-for="Email" class="text-danger"></span>
+				<div class="form-floating">
+					
+					<input asp-for="Email" class="form-control-sm w-50" autocomplete="username" aria-required="true" />
+					
 
-            <div class="form-floating">
-                <input type="password" asp-for="Password" class="form-control" autocomplete="new-password" aria-required="true" />
-                <label asp-for="Password"></label>
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
+				</div>
+				<label class="m-2" asp-for="Password"></label><br />
+				<span asp-validation-for="Password" class="text-danger"></span>
+				<div class="form-floating">
+					
+					<input type="password" asp-for="Password" class="form-control-sm w-50" autocomplete="new-password" aria-required="true" />
+					
+				</div>
 
-            <button id="loginSubmit" type="submit" class="w-100 btn btn-lg btn-success">Login</button>
+				<button id="loginSubmit" type="submit" class="w-25 btn btn-secondary btn-outline-warning rounded-pill">Login</button>
 
-        </form>
-    </div>
+			</form>
+		</div>
+	</div>
 </div>
 @section Scripts {
-        <partial name="_ValidationScriptsPartial" />
+	<partial name="_ValidationScriptsPartial" />
 }
