@@ -43,6 +43,7 @@ namespace SecretNumberGame.Services
                 EndTime = x.Game.GameFinishTime.ToString("HH:mm:ss"),
                 GameDuration = x.Game.Duration.TotalSeconds.ToString("f2"),
                 GoldForTheGame = x.Game.GoldEarned == null ? 0 : x.Game.GoldEarned,
+                SecretNumber = x.Game.SecretNumber,
 
             }).ToListAsync();
             return userGames;

@@ -36,7 +36,7 @@ namespace SecretNumberGame.Controllers
             return RedirectToAction(nameof(GetAllUsersScore));
         }
 
-        [HttpGet]
+        [HttpGet]        
         public async Task<IActionResult> MyScore() 
         {
             var userId = User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;

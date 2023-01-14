@@ -38,20 +38,23 @@
 			<table class="container w-75 table table-bordered table-hover table-responsive-lg border-secondary">
 				<thead>
 					<tr class="bg-info bg-opacity-75">
-						<th>
+						<th width="10%">
 							Game No:
 						</th>
-						<th>
+						<th width="12%">
 							Start Time
 						</th>
-						<th>
+						<th width="11%">
 							End Time
 						</th>
-						<th>
+						<th width="10%">
 							Gold
 						</th>
-						<th>
+						<th width="22%">
 							[hh/mm/ss] Game Duration
+						</th>
+						<th width="15%">
+							Game's Secret
 						</th>
 					</tr>
 				</thead>
@@ -71,7 +74,12 @@
 							<h6>@score.GoldForTheGame</h6>
 						</td>
 
-						<td><h6>@(DateTime.Parse(score.EndTime) - DateTime.Parse(score.StartTime))</h6></td>
+						<td>
+							<h6>@(DateTime.Parse(score.EndTime) - DateTime.Parse(score.StartTime))</h6>
+						</td>
+						<td>
+							<h6>@score.SecretNumber</h6>
+						</td>
 					</tr>
 				</tbody>
 			</table>

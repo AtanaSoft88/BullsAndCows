@@ -19,6 +19,7 @@ namespace SecretNumberGame.Data.DataModels
         public DateTime GameStartTime { get; set; }
         public DateTime GameFinishTime { get; set; }
         public int? GoldEarned { get; set; }
+        public string SecretNumber { get; set; }
         public virtual ICollection<AppUserGame> UserGames { get; set; }
     }
 }

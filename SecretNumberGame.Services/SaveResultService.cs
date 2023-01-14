@@ -52,6 +52,7 @@ namespace SecretNumberGame.Services
                 GameFinishTime = model.EndGameTime,
                 Duration = model.Duration,
                 GoldEarned = model.PenaltyPoints,
+                SecretNumber = model.SecretNumber,
                 
             };
             if (game.Duration.TotalSeconds <= 60) // up to 1 min
