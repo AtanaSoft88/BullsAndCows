@@ -20,15 +20,15 @@ namespace SecretNumberGame.Controllers
 
         public UserController(UserManager<AppUser> _userManager,
                             SignInManager<AppUser> _signInManager,                            
-                            IUserAccountService service,
-                            INotyfService toastMsgService)
+                            IUserAccountService _service,
+                            INotyfService _toastMsgService)
                            
 
         {
             userManager = _userManager;
             signInManager = _signInManager;
-            this.service = service;
-            this.toastMsgService = toastMsgService;
+            this.service = _service;
+            this.toastMsgService = _toastMsgService;
         }
         [HttpGet]
         [AllowAnonymous]
