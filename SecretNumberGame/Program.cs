@@ -1,3 +1,5 @@
+using AspNetCoreHero.ToastNotification;
+using AspNetCoreHero.ToastNotification.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SecretNumberGame.Data;
@@ -40,6 +42,13 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddScoped<ISecretNumberService, SecretNumberService>();
 builder.Services.AddScoped<ISaveResultService, SaveResultService>();
 builder.Services.AddScoped<IScoreBoardService, ScoreBoardService>();
+builder.Services.AddScoped<IUserAccountService, UserAccountService>();
+builder.Services.AddNotyf(conf => 
+{
+    conf.DurationInSeconds = 10;
+    conf.IsDismissable = true;
+    conf.Position = NotyfPosition.TopCenter;
+});
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -64,6 +73,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+app.UseNotyf();
 app.MapRazorPages();
 
 app.Run();

@@ -26,11 +26,11 @@ namespace SecretNumberGame.Services
             var totalNegativePoints = int.Parse(bombs);
             if (totalNegativePoints > 0 && totalNegativePoints <= 3)
             {
-                penaltyPoints = totalNegativePoints * -3;
+                penaltyPoints = totalNegativePoints * (-3);
             }
             else if (totalNegativePoints > 3)
             {
-                penaltyPoints = totalNegativePoints * -4;
+                penaltyPoints = totalNegativePoints * (-4);
             }
             ResultScoreViewModel model = new ResultScoreViewModel()
             {

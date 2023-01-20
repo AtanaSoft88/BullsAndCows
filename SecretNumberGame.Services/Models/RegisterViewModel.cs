@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SecretNumberGame.Data.Constants;
+using System.ComponentModel.DataAnnotations;
 
 namespace SecretNumberGame.Services.Models
 {
@@ -23,13 +24,13 @@ namespace SecretNumberGame.Services.Models
 
         [Required]
         [StringLength(21, MinimumLength = 2)]
-        [RegularExpression(@"\b[A-Z]{1}[a-z]{1,20}\b", ErrorMessage = "This field requires Upper-case starting character, followed by not more than 20 Lower-case characters only")]
+        [RegularExpression(@"\b[A-Z]{1}[a-z]{1,20}\b", ErrorMessage = GlobalConstants.REGISTER_ERROR_MSG)]
         public string FirstName { get; set; } = null!;
 
 
         [Required]
         [StringLength(21, MinimumLength = 2)]
-        [RegularExpression(@"\b[A-Z]{1}[a-z]{1,20}\b", ErrorMessage = "This field requires Upper-case starting character, followed by not more than 20 Lower-case characters only")]
+        [RegularExpression(@"\b[A-Z]{1}[a-z]{1,20}\b", ErrorMessage = GlobalConstants.REGISTER_ERROR_MSG)]
         public string LastName { get; set; } = null!;
     }
 }
